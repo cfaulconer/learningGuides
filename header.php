@@ -2,8 +2,8 @@
     $baseURL = '/learningGuides';
     session_start();
     //Required php files
-    require ('auth.php');
     require ('model.php');
+    require ('auth.php');
     //require ('error.php');
     
     //Grab page name 

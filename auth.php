@@ -1,8 +1,8 @@
 <?php
 
     function login($user, $pass){
-        $mongo = new MongoClient();
-        $collection = $mongo->my_db->users;
+        $db = Database::get();
+        $collection = $db->users;
         $user = $collection->findOne(array('username'=>$user, 'password'=>$pass));
             
         if (isset($user['access'])){
