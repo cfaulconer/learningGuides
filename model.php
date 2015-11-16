@@ -90,6 +90,7 @@
             $id = new MongoID($mongo_id);
             $doc = $collection->findOne(array("_id"=>id));
             if (!isset($doc)){
+                echo "HEY! doc is ".print_r($doc);
             }else{
                 throw new Exception('New document');
             }
