@@ -88,6 +88,11 @@
         
         try {
             $id = new MongoID($mongo_id);
+            $collection = $db->findOne(array("_id"=>id));
+            if (!isset($collection)){
+            }else{
+                throw new Exception('New document');
+            }
         }
         catch (Exception $e){
             //Error means this is a new guide, so set the create date, etc. 
