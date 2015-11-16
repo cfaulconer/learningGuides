@@ -56,8 +56,8 @@
         if (isset($_SESSION['username'])){
             if ($_SESSION['username'] != 'guest'){
                 $username = $_SESSION['username'];
-                $mongo = new MongoClient();
-                $collection = $mongo->my_db->users;
+                $db = Database::get();
+                $collection = $db->users;
                 $user = $collection->findOne(array('username'=>$username));
             }
         }
