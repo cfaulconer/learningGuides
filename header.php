@@ -1,5 +1,5 @@
 <?php
-    $baseURL = '/bio100';
+    $baseURL = '/learningGuides';
     session_start();
     //Required php files
     require ('auth.php');
