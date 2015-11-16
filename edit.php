@@ -11,7 +11,7 @@
         $guideID = 'new';
         $title='Create Learner Guide';
     }
-    $active_menu = 'Explore';
+    $active_menu = 'Edit';
     
     require 'header.php';
    // require 'error.php';

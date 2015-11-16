@@ -1,4 +1,8 @@
 <?php
+    $title = 'Load Data';
+    $active_menu = 'Admin';
+    require 'header.php';
+
     //How many do you want to load? 
     $loadCount = 10;
 
@@ -53,12 +57,18 @@
                      'access' => 'admin',
                      'created_date' => new MongoDate(),
                      'updated_date' => new MongoDate());
+    $superUsers[] = array('username' => 'super',
+                     'password' => 'boguspass',
+                     'access' => 'super',
+                     'created_date' => new MongoDate(),
+                     'updated_date' => new MongoDate());
 
     $collection = $db->users;
     $collection->drop();
 
     $collection->batchInsert($users);
     $collection->batchInsert($adminUsers);
+    $collection->batchInsert($superUsers);
 
     $users = $collection->find();
 

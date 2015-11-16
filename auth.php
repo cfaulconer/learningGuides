@@ -40,7 +40,11 @@
                        'guide.php'=>'guest',
                        'edit.php'=>'user',
                        'login.php'=>'guest',
-                       'logout.php' =>'guest'
+                       'logout.php' =>'guest',
+                       'remove.php' => 'super',
+                       'show-all.php' => 'super',
+                       'load-data.php' => 'super',
+                       'admin.php' => 'super'
                        );
         
         $hierarchy = array ('super' => 4,

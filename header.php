@@ -50,9 +50,17 @@
             </div>
             <div class="collapse navbar-collapse pull-right" id="navbarCollapse">
                 <ul class="nav navbar-nav">
+                    <?php if (isset($_SESSION['username'])){
+                                  if ($_SESSION['username']== 'super'){
+                                    echo '<li';
+                                      if($active_menu == 'Admin') echo ' class="active"';
+                                    echo'><a href="admin.php">Admin</a></li>';
+                                   }
+                            }
+                    ?>
                     <li <?php if ($active_menu == 'Explore') echo 'class="active"';?>><a href="index.php">Explore Guides</a></li>
-                    <li <?php if ($active_menu == 'More') echo 'class="active"';?>><a href="">More</a></li>
-                    <li <?php if ($active_menu == 'Contact') echo 'class="active"';?>><a href="">Contact Us</a></li>
+                    <li <?php if ($active_menu == 'Edit') echo 'class="active"';?>><a href="edit.php">Create a Guide</a></li>
+                    <li <?php if ($active_menu == 'Contact') echo 'class="active"';?>><a href="contact.php">Contact Us</a></li>
                     <li <?php if ($active_menu == 'Login') echo 'class="active"';?>>
                         <?php if (isset($_SESSION['username']))
                                 {echo '<a href="logout.php">Logout '.$_SESSION['username'].'</a>';}

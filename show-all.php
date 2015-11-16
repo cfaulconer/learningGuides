@@ -1,4 +1,7 @@
 <?php
+    $title = 'Show All Data';
+    $active_menu = 'Admin';
+    require 'header.php';
 
     $guides = array();
 
