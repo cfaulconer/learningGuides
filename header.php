@@ -1,6 +1,7 @@
 <?php
     $baseURL = '/learningGuides';
     session_start();
+    ob_start();
     //Required php files
     require ('model.php');
     require ('auth.php');
