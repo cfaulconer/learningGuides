@@ -88,8 +88,8 @@
         
         try {
             $id = new MongoID($mongo_id);
-            $collection = $db->findOne(array("_id"=>id));
-            if (!isset($collection)){
+            $doc = $collection->findOne(array("_id"=>id));
+            if (!isset($doc)){
             }else{
                 throw new Exception('New document');
             }
