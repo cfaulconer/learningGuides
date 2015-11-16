@@ -30,16 +30,19 @@
             <div class="col-sm-12">
             <?php
                 //process the update
-                //PROBLEM!! I think this is updating every time you view the page. 
                 if ($guideID != 'new'){
 
                     if (isset($_POST['submit'])){
                         updateGuide($_POST['id'],
                                     $_POST['title'], 
                                     $_POST['desc'],
-                                    $_POST['learning_outcomes'],
                                     $_POST['introduction'],
+                                    $_POST['learning_outcomes'],
+                                    $_POST['time_required'],
+                                    $_POST['supplies_needed'],
+                                    $_POST['preparation'],
                                     $_POST['procedures'],
+                                    $_POST['wrap_up'],
                                     $_POST['created_by'],
                                     $_POST['created_date'],
                                     $_POST['updated_by'],
@@ -67,21 +70,47 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-3" for="learning_outcomes">Learning Outcomes:</label>
+                <label class="control-label col-sm-3" for="introduction">Introduction:</label>
                 <div class="col-sm-9"> 
-                  <input type="text" class="form-control" name="learning_outcomes" value="<?php echo ($guideID != 'new' ? $guide['learning_outcomes'] : '' );?>">
+                  <textarea rows="5" class="form-control" name="introduction"><?php echo ($guideID != 'new' ?$guide['introduction'] : '');?></textarea>
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-3" for="introduction">Introduction:</label>
+                <label class="control-label col-sm-3" for="learning_outcomes">Learning Outcomes:</label>
                 <div class="col-sm-9"> 
-                  <input type="text" class="form-control" name="introduction" value="<?php echo ($guideID != 'new' ? $guide['introduction'] : '');?>">
+                <textarea rows="5" class="form-control" name="learning_outcomes"><?php echo ($guideID != 'new' ?$guide['learning_outcomes'] : '');?></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-3" for="time_required">Time Required:</label>
+                <div class="col-sm-9"> 
+                <input type="text" class="form-control" name="time_required" value="<?php echo ($guideID != 'new' ? $guide['time_required'] : '' );?>">
+                </div>
+              </div>
+              <!--Supplies Needed-->
+              <div class="form-group">
+                <label class="control-label col-sm-3" for="supplies_needed">Supplies Needed:</label>
+                <div class="col-sm-9"> 
+                  <textarea rows="5" class="form-control" name="supplies_needed"><?php echo ($guideID != 'new' ?$guide['supplies_needed'] : '');?></textarea>
+                </div>
+              </div>
+              <!--Supplies Needed-->
+<div class="form-group">
+                <label class="control-label col-sm-3" for="preparation">Preparation:</label>
+                <div class="col-sm-9"> 
+                  <textarea rows="5" class="form-control" name="preparation"><?php echo ($guideID != 'new' ?$guide['preparation'] : '');?></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label col-sm-3" for="procedures">Procedures:</label>
                 <div class="col-sm-9"> 
-                  <input type="text" class="form-control" name="procedures" value="<?php echo ($guideID != 'new' ?  $guide['procedures'] : '');?>">
+                  <textarea rows="5" class="form-control" name="procedures"><?php echo ($guideID != 'new' ?$guide['procedures'] : '');?></textarea>
+                </div>
+              </div>
+<div class="form-group">
+                <label class="control-label col-sm-3" for="wrap_up">Wrap Up:</label>
+                <div class="col-sm-9"> 
+                  <textarea rows="5" class="form-control" name="wrap_up"><?php echo ($guideID != 'new' ?$guide['wrap_up'] : '');?></textarea>
                 </div>
               </div>
                 <input type="hidden" name="created_by" value="<?php echo $guide['created_by'];?>">

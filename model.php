@@ -1,13 +1,23 @@
 <?php
 
+    //$DB_LOCATION options: 'local' or 'remote'
+    //$DB_LOCATION = 'local';
     class Database
     {
-        private static $_dbUser = 'cfaulconer';
-        private static $_dbPass = 'boguspass99';
-        private static $_dbServer = 'ds045679.mongolab.com:45679';
-        private static $_dbName = 'fetch';
+        //$config = include('config.php');
+//        private static $_dbUser = 'cfaulconer';
+//        private static $_dbPass = 'boguspass99';
+//        private static $_dbServer = 'ds045679.mongolab.com:45679';
+        
+        private static $_dbUser = 'lgweb';
+        private static $_dbPass = '!Dcs^M!Q77WN^hX9';
+        private static $_dbServer = 'localhost';
+        
+        private static $_dbName = 'lg';
         private static $_dbOptions = array("connectTimeoutMS" => 30000);
         private static $_db = NULL;
+        
+        
 
        /**
         * Constructor

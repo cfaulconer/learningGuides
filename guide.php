@@ -26,16 +26,26 @@
                 if ($guide == ''){
                     //Return to index.php
                 }else{
-                    echo('<h2>' . $guide['title'] . '</h2>');
-                    echo('<p>' . $guide['desc'] . '</p>');
-                    echo('<p>' . $guide['learning_outcomes'] . '</p>');
-                    echo('<p>' . $guide['introduction'] . '</p>');
-                    echo('<p>' . $guide['procedures'] . '</p>');
+                    echo '<h2>' . $guide['title'] . '</h2>';
+                    echo '<h3>Description:</h3>';
+                    echo '<p>' . $guide['desc'] . '</p>';
+                    echo '<h3>Introduction:</h3>';
+                    echo '<p>' . $guide['introduction'] . '</p>';
+                    echo '<h3>Learning Outcomes:</h3>';
+                    echo '<p>' . $guide['learning_outcomes'] . '</p>';
+                    echo '<h3>Time Required:</h3>';
+                    echo '<p>' . $guide['time_required'] . '</p>';
+                    echo '<h3>Supplies Needed:</h3>';
+                    echo '<p>' . $guide['supplies_needed'] . '</p>';
+                    echo '<h3>Preparation:</h3>';
+                    echo '<p>' . $guide['preparation'] . '</p>';
+                    echo '<h3>Procedures:</h3>';
+                    echo '<p>' . $guide['procedures'] . '</p>';
+                    echo '<h3>Wrap Up:</h3>';
+                    echo '<p>' . $guide['wrap_up'] . '</p>';
                     echo '<button type="submit" class="btn btn-success pull-right" onclick="javascript:document.location=\'edit.php?id='.$guideID.'\'">Edit</button>';
                 }
-
             ?>
-                  
             </div>
             </div>
         </div>

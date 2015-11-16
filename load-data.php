@@ -12,7 +12,7 @@
                         'preparation' => 'What you have to do before class',
                         'introduction' => 'Sample introduction. In class.',
                         'procedures' => 'Sample procedures. In class.', //long - 20 lines
-                        'wrap-up' => 'Sample wrap up. In class.',
+                        'wrap_up' => 'Sample wrap up. In class.',
                         'created_by' => 'Christian Faulconer',
                         'created_date' => new MongoDate(),
                         'updated_by' => 'Update McUpdater',
@@ -20,11 +20,12 @@
                         'link' => 'guide'.$i);
     }
 
-    $uri = "mongodb://cfaulconer:boguspass99@ds045679.mongolab.com:45679/fetch";
+    //$uri = "mongodb://cfaulconer:boguspass99@ds045679.mongolab.com:45679/fetch";
+    $uri = "mongodb://lgweb:!Dcs^M!Q77WN^hX9@localhost/lg";
     $options = array("connectTimeoutMS" => 30000);
 
     $client = new MongoClient($uri, $options );
-    $db = $client->selectDB("fetch");
+    $db = $client->selectDB("lg");
     $collection = $db->guides;
     $collection->drop();
 
