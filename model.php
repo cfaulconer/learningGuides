@@ -64,13 +64,19 @@
         }
         return $guide;   
     }
-    
+
+
     function updateGuide($mongo_id, 
                          $title, 
                          $desc, 
+                         $introduction,
                          $learning_outcomes, 
-                         $introduction, 
+                         $time_required,
+                         $supplies_needed,
+                         $preparation,
                          $procedures, 
+                         $wrap_up,
+                        // $content_links,
                          $created_by, 
                          $created_date, 
                          $updated_by, 
@@ -90,9 +96,14 @@
         
         $newData = array('title' => $title,
                          'desc' => $desc, 
-                         'learning_outcomes' => $learning_outcomes,
                          'introduction' => $introduction,
+                         'learning_outcomes' => $learning_outcomes,
+                         'time_required' => $time_required,
+                         'supplies_needed' => $supplies_needed,
+                         'preparation' => $preparation,
                          'procedures' => $procedures,
+                         'wrap_up' => $wrap_up,
+                         //'content_links' => $content_links,
                          'created_by' => 'Christian Faulconer',
                          'created_date' => $created_date,
                          'updated_by' => 'Update McUpdater',

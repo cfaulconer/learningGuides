@@ -13,6 +13,10 @@
                         'introduction' => 'Sample introduction. In class.',
                         'procedures' => 'Sample procedures. In class.', //long - 20 lines
                         'wrap_up' => 'Sample wrap up. In class.',
+//                        'content_links' =>array(
+//                            '<iframe width="640" height="360" src="https://www.youtube.com/embed/v59uc-Vp4Kg" frameborder="0" allowfullscreen></iframe>', 
+//                            '<iframe width="640" height="360" src="https://www.youtube.com/embed/K-tHpwMjkrA" frameborder="0" allowfullscreen></iframe>'
+//                            ),
                         'created_by' => 'Christian Faulconer',
                         'created_date' => new MongoDate(),
                         'updated_by' => 'Update McUpdater',
@@ -44,11 +48,17 @@
                      'access' => 'user',
                      'created_date' => new MongoDate(),
                      'updated_date' => new MongoDate());
+    $adminUsers[] = array('username' => 'admin',
+                     'password' => 'admin',
+                     'access' => 'admin',
+                     'created_date' => new MongoDate(),
+                     'updated_date' => new MongoDate());
 
     $collection = $db->users;
     $collection->drop();
 
     $collection->batchInsert($users);
+    $collection->batchInsert($adminUsers);
 
     $users = $collection->find();
 

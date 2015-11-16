@@ -2,11 +2,13 @@
     //Page setup
     $title = 'Login';
     $active_menu = 'Login';
-    $access_level = 'guest';
     require 'header.php';
 
     if (isset($_POST['submit'])){
         $access = login($_POST['username'], $_POST['password']);
+        if ($access != 'guest'){
+            header('Location:'.$baseURL.'/index.php');
+        }
     }
 
 ?>

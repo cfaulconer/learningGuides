@@ -54,9 +54,18 @@
                     <li <?php if ($active_menu == 'Contact') echo 'class="active"';?>><a href="">Contact Us</a></li>
                     <li <?php if ($active_menu == 'Login') echo 'class="active"';?>>
                         <?php if (isset($_SESSION['username']))
-                                {echo '<a href="logout.php">Logout</a>';}
+                                {echo '<a href="logout.php">Logout '.$_SESSION['username'].'</a>';}
                             else{echo '<a href="login.php">Login</a>';}?></li>
                 </ul>
             </div>
         </div>
     </nav>
+    <?php
+        if (isset($_SESSION['error_msg'])){
+            echo '<div class="alert alert-warning">';
+            echo '<a href="#" class="close" data-dismiss="alert">&times;</a>';
+            echo '<strong>Warning!</strong> '.$_SESSION['error_msg'];
+            echo '</div>';
+            unset($_SESSION['error_msg']);
+        }
+    ?>

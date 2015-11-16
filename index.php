@@ -56,14 +56,31 @@
             </div>
             <div class="col-sm-9">
             <?php
+              //Currently I have a rowbreak after every three guides, but ideally we would just show an image with 
+              //a set height so that no rows were necessary. Remove the counter and rowbreak along with the marked
+              //sections below when we move to clickable images
+              
+              //Remove these 4 lines when switched to imaged with fixed height. 
+              $count = 0;
+              $rowbreak = 3;
               $guides = getGuides();
+              echo '<div class="row">';
+                
               foreach ($guides as $guide) {
+                $count = $count+1;
                 echo('<div class="col-xs-6 col-lg-4">');
                 echo('<h2>' . $guide['title'] . '</h2>');
                 echo('<p>' . $guide['desc'] . '</p>');
-                echo('<a class="btn btn-default" href="guide.php?id='. $guide['_id'] .'" role="button">View details &raquo;</a></p>');
+                echo('<a class="btn btn-default" href="guide.php?id='. $guide['_id'] .'" role="button">View details &raquo;</a>');
                 echo('</div><!--/.col-xs-6.col-lg-4-->');
+                
+                //remove this if when switched to images with fixed height
+                if(($count % $rowbreak) == 0){
+                    echo '</div><div class="row">';
+                }
               }
+            //remove this when switched to images with fixed height    
+            echo '</div>';
             ?>
            
             </div>

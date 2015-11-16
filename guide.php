@@ -24,8 +24,10 @@
               
                 $guide = getGuide($guideID);
                 if ($guide == ''){
-                    //Return to index.php
+                    header('Location:'.$baseURL.'/index.php');
+
                 }else{
+                    echo '<button type="submit" class="btn btn-success pull-right" onclick="javascript:document.location=\'edit.php?id='.$guideID.'\'">Edit</button>';
                     echo '<h2>' . $guide['title'] . '</h2>';
                     echo '<h3>Description:</h3>';
                     echo '<p>' . $guide['desc'] . '</p>';
@@ -43,6 +45,11 @@
                     echo '<p>' . $guide['procedures'] . '</p>';
                     echo '<h3>Wrap Up:</h3>';
                     echo '<p>' . $guide['wrap_up'] . '</p>';
+//                    echo '<h3>Online Resources:</h3>';
+//                    $links = $guide['content_links'];
+//                    foreach ($links as $link){
+//                        echo $link;
+//                    }
                     echo '<button type="submit" class="btn btn-success pull-right" onclick="javascript:document.location=\'edit.php?id='.$guideID.'\'">Edit</button>';
                 }
             ?>

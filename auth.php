@@ -7,17 +7,17 @@
             
         if (isset($user['access'])){
             $access = $user['access'];
+            $_SESSION['username']=$user['username'];
+            
+            //Update the Session ID in the db
+            $sid = session_id();
+            $newdata = array('$set' => array("session_id" => $sid));
+            $result = $collection->update(array("username" => $user['username']),$newdata);
+            
         }else{
             $access = 'guest';
-            $user = 'guest';
+            $_SESSION['error_msg'] = 'Could not find that username / password combination. Please try again.';
         }
-        
-        $_SESSION['username']=$user['username'];
-
-        //Update the Session ID in the db
-        $sid = session_id();
-        $newdata = array('$set' => array("session_id" => $sid));
-        $result = $collection->update(array("username" => $user['username']),$newdata);
         
         return $access;
     }
@@ -39,7 +39,8 @@
         $auth = array ('index.php'=>'guest',
                        'guide.php'=>'guest',
                        'edit.php'=>'user',
-                       'login.php'=>'guest'
+                       'login.php'=>'guest',
+                       'logout.php' =>'guest'
                        );
         
         $hierarchy = array ('super' => 4,
@@ -73,7 +74,9 @@
         if ($user_level >= $page_level) {
             //Grant access to page
             $allow = true;
-        }            
+        } else {
+            $_SESSION['error_msg'] = 'You do not have access to view that page.';
+        }           
         
         return $allow;
        
