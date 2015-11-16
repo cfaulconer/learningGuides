@@ -30,25 +30,26 @@
             <div class="col-sm-12">
             <?php
                 //process the update
-                    if (isset($_POST['updated_by'])){
-                        updateGuide($_POST['id'],
-                                    $_POST['title'], 
-                                    $_POST['desc'],
-                                    $_POST['introduction'],
-                                    $_POST['learning_outcomes'],
-                                    $_POST['time_required'],
-                                    $_POST['supplies_needed'],
-                                    $_POST['preparation'],
-                                    $_POST['procedures'],
-                                    $_POST['wrap_up'],
-                                    $_POST['content_links'],
-                                    $_POST['created_by'],
-                                    $_POST['created_date'],
-                                    $_POST['updated_by'],
-                                    $_POST['updated_date'],
-                                    $_POST['link']);
+                    if (isset($_POST['submit'])){
+                        $guideID = updateGuide($_POST['id'],
+                                                    $_POST['title'], 
+                                                    $_POST['desc'],
+                                                    $_POST['introduction'],
+                                                    $_POST['learning_outcomes'],
+                                                    $_POST['time_required'],
+                                                    $_POST['supplies_needed'],
+                                                    $_POST['preparation'],
+                                                    $_POST['procedures'],
+                                                    $_POST['wrap_up'],
+                                                 //   $_POST['content_links'],
+                //                                    $_POST['created_by'],
+                //                                    $_POST['created_date'],
+                //                                    $_POST['updated_by'],
+                //                                    $_POST['updated_date'],
+                                                    $_POST['link']);
                         //After update, redirect to the guide view
                         header('Location:'.$baseURL.'/guide.php?id='.$guideID);
+                        //print_r($guideID);
 
                     }else{
                         $guide = getGuide($guideID);
@@ -113,14 +114,14 @@
                   <textarea rows="5" class="form-control" name="wrap_up"><?php echo ($guideID != 'new' ?$guide['wrap_up'] : '');?></textarea>
                 </div>
               </div>
-                
+      <!--          
                 <input type="hidden" name="created_by" value="<?php echo $guide['created_by'];?>">
                 <input type="hidden" name="created_date" value="<?php echo $guide['created_date'];?>">
                 <input type="hidden" name="updated_by" value="<?php echo $guide['updated_by'];?>">
                 <input type="hidden" name="updated_date" value="<?php echo $guide['updated_date'];?>">
-
+    -->
                 <input type="hidden" name="link" value="<?php echo $guideID;?>">
-                <input type="hidden" name="id" value="<?php echo $guide['_id'];?>">
+                <input type="hidden" name="id" value="<?php if(isset($guide['_id'])) echo $guide['_id'];?>">
       
               <div class="form-group"> 
                 <div class="col-sm-offset-2 col-sm-10">

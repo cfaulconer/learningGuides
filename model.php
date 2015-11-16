@@ -77,10 +77,10 @@
                          $procedures, 
                          $wrap_up,
                         // $content_links,
-                         $created_by, 
-                         $created_date, 
-                         $updated_by, 
-                         $updated_date, 
+//                         $created_by, 
+//                         $created_date, 
+//                         $updated_by, 
+//                         $updated_date, 
                          $link){
 
         $db = Database::get();
@@ -90,8 +90,13 @@
             $id = new MongoID($mongo_id);
         }
         catch (Exception $e){
-            //Error means this is a new guide, so set the create date
+            //Error means this is a new guide, so set the create date, etc. 
+            $new = true;
+            $created_by = $_SESSION['username'];
             $created_date = new MongoDate();
+            $updated_by = $created_by;
+            $updated_date = $created_date;
+
         }
         
         $newData = array('title' => $title,
@@ -110,9 +115,13 @@
                          'updated_date' => new MongoDate(),
                          'link' => $link);
         
-        $collection->update(array("_id" => $id),$newData, array("upsert"=>true));
+        if ($new){
+            $collection->insert($newData);
+        }else{
+            $collection->update(array("_id" => $id),$newData);
+        }
  
-        return $collection;
+        return $newData['_id'];
     }
 
 ?>
