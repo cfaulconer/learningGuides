@@ -41,6 +41,7 @@
                        'edit.php'=>'user',
                        'login.php'=>'guest',
                        'logout.php' =>'guest',
+                       'contact.php' =>'guest',
                        'remove.php' => 'super',
                        'show-all.php' => 'super',
                        'load-data.php' => 'super',
