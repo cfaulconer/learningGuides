@@ -77,35 +77,27 @@
                          $procedures, 
                          $wrap_up,
                         // $content_links,
-//                         $created_by, 
-//                         $created_date, 
+                         $created_by, 
+                         $created_date, 
 //                         $updated_by, 
 //                         $updated_date, 
-                         $link){
+                         $update){
 
         $db = Database::get();
         $collection = $db->guides;
         
-        try {
-            $id = new MongoID($mongo_id);
-            $doc = $collection->find(array("_id"=>$id));
-        }
-        catch (Exception $e){
-            //This is only thrown in some versions of mongo, but when it is thrown, 
-            //it means that this is a new record
-            $doc = array();
-        }
+        $new = false;
         
-        
-       $_SESSION['error_msg'] = "Count of doc is ".count($doc);
-        
-        if (count($doc)==0){
+        if ($update == 'new'){
             //Set the meta data for new guides
             $new = true;
             $created_by = $_SESSION['username'];
             $created_date = new MongoDate();
             $updated_by = $created_by;
             $updated_date = $created_date;
+        }else{
+            $updated_by = $_SESSION['username'];
+            $id = new MongoID($mongo_id);
         }
        
 //        try {
@@ -139,19 +131,20 @@
                          'procedures' => $procedures,
                          'wrap_up' => $wrap_up,
                          //'content_links' => $content_links,
-                         'created_by' => 'Christian Faulconer',
+                         'created_by' => $created_by,
                          'created_date' => $created_date,
-                         'updated_by' => 'Update McUpdater',
-                         'updated_date' => new MongoDate(),
-                         'link' => $link);
+                         'updated_by' => $updated_by,
+                         'updated_date' => new MongoDate());
         
         if ($new){
             $collection->insert($newData);
+            $retval = $newData['_id'];
         }else{
             $collection->update(array("_id" => $id),$newData);
+            $retval = $id;
         }
  
-        return $newData['_id'];
+        return $id;
     }
 
 ?>

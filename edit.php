@@ -3,13 +3,22 @@
     if (isset($_GET['id'])) {
         $guideID=$_GET['id'];
         $title='Edit '.$guideID.' Details';
-    }else if (isset($_POST['id'])){
-        $guideID = $_POST['id'];
-        $title='Edit '.$guideID.' Details';
+        //Existing guide
+        $update = 'update';
+    }
 
-    }else{
+//else if (isset($_POST['id'])){
+//        $guideID = $_POST['id'];
+//        $title='Edit '.$guideID.' Details';
+//        //Existing guide
+//        $update = 'update';
+//    }
+    else{
         $guideID = 'new';
         $title='Create Learner Guide';
+        //New guide
+        $update = 'new';
+        
     }
     $active_menu = 'Edit';
     
@@ -42,16 +51,14 @@
                                                     $_POST['procedures'],
                                                     $_POST['wrap_up'],
                                                  //   $_POST['content_links'],
-                //                                    $_POST['created_by'],
-                //                                    $_POST['created_date'],
+                                                    $_POST['created_by'],
+                                                    $_POST['created_date'],
                 //                                    $_POST['updated_by'],
                 //                                    $_POST['updated_date'],
-                                                    $_POST['link']);
+                                                    $_POST['update']);
                         //After update, redirect to the guide view
-                        //header('Location:'.$baseURL.'/guide.php?id='.$guideID);
-                        echo "GUIDE ID RESULTS: <br>:";
-                        print_r($guideID);
-
+                        header('Location:'.$baseURL.'/guide.php?id='.$guideID);
+                        
                     }else{
                         $guide = getGuide($guideID);
                     }
@@ -115,13 +122,13 @@
                   <textarea rows="5" class="form-control" name="wrap_up"><?php echo ($guideID != 'new' ?$guide['wrap_up'] : '');?></textarea>
                 </div>
               </div>
-      <!--          
+                
                 <input type="hidden" name="created_by" value="<?php echo $guide['created_by'];?>">
                 <input type="hidden" name="created_date" value="<?php echo $guide['created_date'];?>">
                 <input type="hidden" name="updated_by" value="<?php echo $guide['updated_by'];?>">
                 <input type="hidden" name="updated_date" value="<?php echo $guide['updated_date'];?>">
-    -->
-                <input type="hidden" name="link" value="<?php echo $guideID;?>">
+    
+                <input type="hidden" name="update" value="<?php echo $update;?>">
                 <input type="hidden" name="id" value="<?php if(isset($guide['_id'])) echo $guide['_id'];?>">
       
               <div class="form-group"> 

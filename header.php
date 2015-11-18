@@ -5,7 +5,7 @@
     //Required php files
     require ('model.php');
     require ('auth.php');
-    require ('error.php');
+    //require ('error.php');
     
     //Grab page name 
     $page = basename($_SERVER['SCRIPT_FILENAME']);
