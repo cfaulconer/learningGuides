@@ -97,7 +97,7 @@
         }
         
         
-       // echo "Count of doc is ".count($doc);
+       $_SESSION['error_msg'] = "Count of doc is ".count($doc);
         
         if (count($doc)==0){
             //Set the meta data for new guides
