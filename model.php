@@ -88,22 +88,46 @@
         
         try {
             $id = new MongoID($mongo_id);
-            $doc = $collection->findOne(array("_id"=>id));
-            if (!empty($doc)){
-                echo "HEY! doc is ".print_r($doc);
-            }else{
-                throw new Exception('New document');
-            }
+            $doc = $collection->find(array("_id"=>$id));
         }
         catch (Exception $e){
-            //Error means this is a new guide, so set the create date, etc. 
+            //This is only thrown in some versions of mongo, but when it is thrown, 
+            //it means that this is a new record
             $new = true;
+            $doc = array();
+        }
+        
+        
+        echo "Count of doc is ".count($doc);
+        
+        if ($new){
+            //Set the meta data for new guides
             $created_by = $_SESSION['username'];
             $created_date = new MongoDate();
             $updated_by = $created_by;
             $updated_date = $created_date;
-
         }
+       
+//        try {
+//            //$id = new MongoID($mongo_id);
+//            $doc = $collection->find(array("_id"=>id));
+//            $_SESSION['error_msg'] = print_r($doc);
+//
+//            if (!empty($doc)){
+//                echo "HEY! doc is ".print_r($doc);
+//            }else{
+//                throw new Exception('New document');
+//            }
+//        }
+//        catch (Exception $e){
+//            //Error means this is a new guide, so set the create date, etc. 
+//            $new = true;
+//            $created_by = $_SESSION['username'];
+//            $created_date = new MongoDate();
+//            $updated_by = $created_by;
+//            $updated_date = $created_date;
+//
+//        }
         
         $newData = array('title' => $title,
                          'desc' => $desc, 
