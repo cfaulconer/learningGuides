@@ -93,15 +93,15 @@
         catch (Exception $e){
             //This is only thrown in some versions of mongo, but when it is thrown, 
             //it means that this is a new record
-            $new = true;
             $doc = array();
         }
         
         
-        echo "Count of doc is ".count($doc);
+       // echo "Count of doc is ".count($doc);
         
-        if ($new){
+        if (count($doc)==0){
             //Set the meta data for new guides
+            $new = true;
             $created_by = $_SESSION['username'];
             $created_date = new MongoDate();
             $updated_by = $created_by;
