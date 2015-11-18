@@ -48,7 +48,7 @@
                 //                                    $_POST['updated_date'],
                                                     $_POST['link']);
                         //After update, redirect to the guide view
-                        header('Location:'.$baseURL.'/guide.php?id='.$guideID);
+                        //header('Location:'.$baseURL.'/guide.php?id='.$guideID);
                         //print_r($guideID);
 
                     }else{
