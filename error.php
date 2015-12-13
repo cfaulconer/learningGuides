@@ -13,6 +13,8 @@
         echo "</td>";
         echo "</tr>";
     }
+    
+    echo '<tr><td>REQUEST_URI</td><td>'.$_SERVER['REQUEST_URI'].'</td></tr>';
 
 
 ?>

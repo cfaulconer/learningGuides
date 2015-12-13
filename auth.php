@@ -30,7 +30,7 @@
         session_destroy(); 
     }
 
-    function auth($page){   
+    function auth($page, $uri){   
         //default to guest access, do not allow
         $allow = false;
         $user = array ('username' => 'guest', 'access'=>'guest');
@@ -45,7 +45,8 @@
                        'remove.php' => 'super',
                        'show-all.php' => 'super',
                        'load-data.php' => 'super',
-                       'admin.php' => 'super'
+                       'admin.php' => 'super',
+                       'testForm.php' => 'guest'
                        );
         
         $hierarchy = array ('super' => 4,
@@ -80,7 +81,13 @@
             //Grant access to page
             $allow = true;
         } else {
-            $_SESSION['error_msg'] = 'You do not have access to view that page.';
+            //User didn't have access, so track the page they are trying to access for future
+            //redirect after a successful login
+            if ($page != 'login.php'){
+                $_SESSION['attempted_page'] = $uri;
+                $_SESSION['error_msg'] = 'You do not have access to view that page.';
+            }
+            
         }           
         
         return $allow;

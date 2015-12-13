@@ -9,9 +9,10 @@
     
     //Grab page name 
     $page = basename($_SERVER['SCRIPT_FILENAME']);
-    $allow = auth($page);
+    $uri = $_SERVER['REQUEST_URI'];
+    $allow = auth($page, $uri);
     if (!$allow) {
-        header('Location:'.$baseURL.'/index.php');
+        header('Location:'.$baseURL.'/login.php');
     }
 ?>
 
@@ -23,19 +24,28 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--import Able Google Font-->
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
     <!-- Custom Bio 100 Style -->
-    <link rel="stylesheet" href="styles/bio100.css">
+    <link rel="stylesheet" href="styles/style.css">
+    
+<!--
+    HTML Editor for Textareas
+    <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+    <script>tinymce.init({selector:'textarea'});</script>
+-->
 
 </head>
 <body>
 <!--Global navigation-->
-    <nav class="navbar navbar-default navbar-inverse" role="navigation">
+    <nav class="navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
 
@@ -69,12 +79,4 @@
             </div>
         </div>
     </nav>
-    <?php
-        if (isset($_SESSION['error_msg'])){
-            echo '<div class="alert alert-warning">';
-            echo '<a href="#" class="close" data-dismiss="alert">&times;</a>';
-            echo '<strong>Warning!</strong> '.$_SESSION['error_msg'];
-            echo '</div>';
-            unset($_SESSION['error_msg']);
-        }
-    ?>
+    <div id="errorMessage"></div>

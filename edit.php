@@ -33,9 +33,6 @@
     
     <div class="container">
         <div class="row">
-            <div class="jumbotron">Bacon ipsum dolor amet tenderloin porchetta alcatra pancetta fatback landjaeger cupim doner picanha shoulder meatball kevin. Swine bresaola venison, fatback strip steak pork belly pork chop. Pork belly bacon tenderloin, ball tip strip steak turducken picanha boudin. Ground round tenderloin corned beef doner shankle chuck shank hamburger biltong meatball. Frankfurter swine pork chop hamburger pork belly.</div>
-        </div>
-        <div class="row">
             <div class="col-sm-12">
             <?php
                 //process the update
@@ -66,6 +63,11 @@
             ?>
                 
             <form class="horizontal" role="form" method="post" action="edit.php">
+              <div class="form-group"> 
+                <div class="col-sm-offset-2 col-sm-10">
+                  <input type="submit" name="submit" value="Save" class="button-big button-blue">
+                </div>
+              </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="title">Title:</label>
                 <div class="col-sm-9">
@@ -133,7 +135,7 @@
       
               <div class="form-group"> 
                 <div class="col-sm-offset-2 col-sm-10">
-                  <input type="submit" name="submit" value="Save" class="btn btn-success pull-right">
+                  <input type="submit" name="submit" value="Save" class="button-big button-blue">
                 </div>
               </div>
             </form>

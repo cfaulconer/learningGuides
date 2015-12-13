@@ -16,9 +16,6 @@
     
     <div class="container">
         <div class="row">
-            <div class="jumbotron">Bacon ipsum dolor amet tenderloin porchetta alcatra pancetta fatback landjaeger cupim doner picanha shoulder meatball kevin. Swine bresaola venison, fatback strip steak pork belly pork chop. Pork belly bacon tenderloin, ball tip strip steak turducken picanha boudin. Ground round tenderloin corned beef doner shankle chuck shank hamburger biltong meatball. Frankfurter swine pork chop hamburger pork belly.</div>
-        </div>
-        <div class="row">
             <div class="col-sm-12">
             <?php
               
@@ -27,7 +24,7 @@
                     header('Location:'.$baseURL.'/index.php');
 
                 }else{
-                    echo '<button type="submit" class="btn btn-success pull-right" onclick="javascript:document.location=\'edit.php?id='.$guideID.'\'">Edit</button>';
+                    echo '<button type="submit" class="button-big button-blue" onclick="javascript:document.location=\'edit.php?id='.$guideID.'\'">Edit</button>';
                     echo '<h2>' . $guide['title'] . '</h2>';
                     echo '<h3>Description:</h3>';
                     echo '<p>' . $guide['desc'] . '</p>';
@@ -50,7 +47,7 @@
 //                    foreach ($links as $link){
 //                        echo $link;
 //                    }
-                    echo '<button type="submit" class="btn btn-success pull-right" onclick="javascript:document.location=\'edit.php?id='.$guideID.'\'">Edit</button>';
+                    echo '<button type="submit" class="button-big button-blue" onclick="javascript:document.location=\'edit.php?id='.$guideID.'\'">Edit</button>';
                 }
             ?>
             </div>
