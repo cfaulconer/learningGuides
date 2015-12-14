@@ -100,26 +100,15 @@
             $id = new MongoID($mongo_id);
         }
        
-//        try {
-//            //$id = new MongoID($mongo_id);
-//            $doc = $collection->find(array("_id"=>id));
-//            $_SESSION['error_msg'] = print_r($doc);
-//
-//            if (!empty($doc)){
-//                echo "HEY! doc is ".print_r($doc);
-//            }else{
-//                throw new Exception('New document');
-//            }
-//        }
-//        catch (Exception $e){
-//            //Error means this is a new guide, so set the create date, etc. 
-//            $new = true;
-//            $created_by = $_SESSION['username'];
-//            $created_date = new MongoDate();
-//            $updated_by = $created_by;
-//            $updated_date = $created_date;
-//
-//        }
+        //Clean up htmlchars and line breaks
+        $title = nl2br(htmlentities($title, ENT_QUOTES, 'UTF-8'));
+        $desc = nl2br(htmlentities($desc, ENT_QUOTES, 'UTF-8'));
+        $introduction = nl2br(htmlentities($introduction, ENT_QUOTES, 'UTF-8'));
+        $learning_outcomes = nl2br(htmlentities($learning_outcomes, ENT_QUOTES, 'UTF-8'));
+        $supplies_needed = nl2br(htmlentities($supplies_needed, ENT_QUOTES, 'UTF-8'));
+        $preparation = nl2br(htmlentities($preparation, ENT_QUOTES, 'UTF-8'));
+        $procedures = nl2br(htmlentities($procedures, ENT_QUOTES, 'UTF-8'));
+        $wrap_up = nl2br(htmlentities($wrap_up, ENT_QUOTES, 'UTF-8'));
         
         $newData = array('title' => $title,
                          'desc' => $desc, 
