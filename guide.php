@@ -2,7 +2,7 @@
     //Page setup
     if (isset($_GET['id'])) {
         $guideID=$_GET['id'];
-        $title=$guideID.' Details';
+        $title=' Details';
     }else{
         $guideID = '';
         $title='Learner Guide Details';
