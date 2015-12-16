@@ -36,11 +36,10 @@
     <!-- Custom Bio 100 Style -->
     <link rel="stylesheet" href="styles/style.css">
     
-<!--
-    HTML Editor for Textareas
+    <!--HTML Editor for Textareas-->
     <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
     <script>tinymce.init({selector:'textarea'});</script>
--->
+
 
 </head>
 <body>

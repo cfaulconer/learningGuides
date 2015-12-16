@@ -64,63 +64,63 @@
                 
             <form class="horizontal" role="form" method="post" action="edit.php">
               <div class="form-group"> 
-                <div class="col-sm-offset-2 col-sm-10">
-                  <input type="submit" name="submit" value="Save" class="button-big button-blue">
+                <div class="col-sm-12">
+                  <input type="submit" name="submit" value="Save" class="button-big button-blue pull-right">
                 </div>
               </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-3" for="title">Title:</label>
-                <div class="col-sm-9">
+                <div class="col-sm-12">
+                  <label class="control-label" for="title">Title:</label>
                   <input type="text" class="form-control" name="title" value="<?php echo ($guideID != 'new' ?str_replace('<br />',"\n",$guide['title']) : '');?>">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-3" for="desc">Description:</label>
-                <div class="col-sm-9"> 
+                <div class="col-sm-12"> 
+                  <label class="control-label" for="desc">Description:</label>
                   <textarea rows="5" class="form-control" name="desc"><?php echo ($guideID != 'new' ?str_replace('<br />',"\n",$guide['desc']) : '');?></textarea>
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-3" for="introduction">Introduction:</label>
-                <div class="col-sm-9"> 
+                <div class="col-sm-12">           
+                  <label class="control-labeL" for="introduction">Introduction:</label>
                   <textarea rows="5" class="form-control" name="introduction"><?php echo ($guideID != 'new' ?str_replace('<br />',"\n",$guide['introduction']) : '');?></textarea>
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-3" for="learning_outcomes">Learning Outcomes:</label>
-                <div class="col-sm-9"> 
+                <div class="col-sm-12"> 
+                <label class="control-label" for="learning_outcomes">Learning Outcomes:</label>
                 <textarea rows="5" class="form-control" name="learning_outcomes"><?php echo ($guideID != 'new' ?str_replace('<br />',"\n",$guide['learning_outcomes']) : '');?></textarea>
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-3" for="time_required">Time Required:</label>
-                <div class="col-sm-9"> 
+                <div class="col-sm-12"> 
+                <label class="control-label" for="time_required">Time Required:</label>
                 <input type="text" class="form-control" name="time_required" value="<?php echo ($guideID != 'new' ? str_replace('<br />',"\n",$guide['time_required']) : '' );?>">
                 </div>
               </div>
               <!--Supplies Needed-->
               <div class="form-group">
-                <label class="control-label col-sm-3" for="supplies_needed">Supplies Needed:</label>
-                <div class="col-sm-9"> 
+                  <div class="col-sm-12">
+                <label class="control-label" for="supplies_needed">Supplies Needed:</label> 
                   <textarea rows="5" class="form-control" name="supplies_needed"><?php echo ($guideID != 'new' ?str_replace('<br />',"\n",$guide['supplies_needed']) : '');?></textarea>
                 </div>
               </div>
               <!--Supplies Needed-->
 <div class="form-group">
-                <label class="control-label col-sm-3" for="preparation">Preparation:</label>
-                <div class="col-sm-9"> 
+                <div class="col-sm-12">            
+                  <label class="control-label" for="preparation">Preparation:</label>
                   <textarea rows="5" class="form-control" name="preparation"><?php echo ($guideID != 'new' ?str_replace('<br />',"\n",$guide['preparation']) : '');?></textarea>
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-3" for="procedures">Procedures:</label>
-                <div class="col-sm-9"> 
+                  <div class="col-sm-12">
+                <label class="control-label" for="procedures">Procedures:</label> 
                   <textarea rows="5" class="form-control" name="procedures"><?php echo ($guideID != 'new' ?str_replace('<br />',"\n",$guide['procedures']) : '');?></textarea>
                 </div>
               </div>
             <div class="form-group">
-                <label class="control-label col-sm-3" for="wrap_up">Wrap Up:</label>
-                <div class="col-sm-9"> 
+                <div class="col-sm-12">
+                <label class="control-label" for="wrap_up">Wrap Up:</label> 
                   <textarea rows="5" class="form-control" name="wrap_up"><?php echo ($guideID != 'new' ?str_replace('<br />',"\n",$guide['wrap_up']) : '');?></textarea>
                 </div>
               </div>
@@ -134,8 +134,8 @@
                 <input type="hidden" name="id" value="<?php if(isset($guide['_id'])) echo $guide['_id'];?>">
       
               <div class="form-group"> 
-                <div class="col-sm-offset-2 col-sm-10">
-                  <input type="submit" name="submit" value="Save" class="button-big button-blue">
+                <div class="col-sm-12">
+                  <input type="submit" name="submit" value="Save" class="button-big button-blue pull-right">
                 </div>
               </div>
             </form>

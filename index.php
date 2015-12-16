@@ -12,7 +12,7 @@
         <div clas="row">
             <div class="col-md-10 col-md-offset-1">
             <h3>General Information</h3>
-                <p>This repository includes a set of Learning Guides to be used in active learning experiences to teach science. Learn more aboout how to design these learning activities by participating in the free Canvas course <a href="https://canvas.instructure.com/courses/984786">here</a>.</p>
+                <p>This repository includes a set of Learning Guides to be used to design learning experiences to teach science. Learn more about how to design these learning activities by participating in the free Canvas course <a href="https://canvas.instructure.com/courses/984786">here</a>.</p>
             </div>
         </div>
         <div class="row">
