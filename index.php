@@ -24,7 +24,7 @@
               foreach ($guides as $guide) {
                 //Get the short title and short descriptions
                 if (strlen($guide['title']) > 20){
-                    $shortTitle = substr($guide['title'],0,20).'...';
+                    $shortTitle = substr($guide['title'],0,30).'...';
                 }else{
                     $shortTitle = $guide['title'];
                 }
@@ -36,9 +36,9 @@
                 echo '<div class="col-sm-4">';
                 echo '<div class="card">';
                 //echo '<img class="card-img-top" data-src="..." alt="Card image cap">';
-                echo '<div class="card-title">'. $shortTitle .'</div>';
+                echo '<div class="card-title"><a href="guide.php?id='. $guide['_id'] .'" role="button">'. $shortTitle .'</a></div>';
                 echo '<div class="card-text">' . $shortDesc . '</div>';
-                echo '<a class="card-link" href="guide.php?id='. $guide['_id'] .'" role="button">View Details</a>';
+                //echo '<a class="card-link" href="guide.php?id='. $guide['_id'] .'" role="button">View Details</a>';
                 echo '</div></div>';  
               }
             ?>
