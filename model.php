@@ -45,6 +45,11 @@
        }
     }   
 
+    function cleanInput($post_content){
+        $clean_content = str_replace("\r\n","<br />",$post_content);
+        return $clean_content;
+    }
+
     function getGuides(){
         $db = Database::get();
         $collection = $db->guides;
@@ -101,14 +106,14 @@
         }
        
         //Clean up htmlchars and line breaks
-        $title = nl2br(htmlentities($title, ENT_QUOTES, 'UTF-8'));
-        $desc = nl2br(htmlentities($desc, ENT_QUOTES, 'UTF-8'));
-        $introduction = nl2br(htmlentities($introduction, ENT_QUOTES, 'UTF-8'));
-        $learning_outcomes = nl2br(htmlentities($learning_outcomes, ENT_QUOTES, 'UTF-8'));
-        $supplies_needed = nl2br(htmlentities($supplies_needed, ENT_QUOTES, 'UTF-8'));
-        $preparation = nl2br(htmlentities($preparation, ENT_QUOTES, 'UTF-8'));
-        $procedures = nl2br(htmlentities($procedures, ENT_QUOTES, 'UTF-8'));
-        $wrap_up = nl2br(htmlentities($wrap_up, ENT_QUOTES, 'UTF-8'));
+        $title = cleanInput(htmlentities($title, ENT_QUOTES, 'UTF-8'));
+        $desc = cleanInput(htmlentities($desc, ENT_QUOTES, 'UTF-8'));
+        $introduction = cleanInput(htmlentities($introduction, ENT_QUOTES, 'UTF-8'));
+        $learning_outcomes = cleanInput(htmlentities($learning_outcomes, ENT_QUOTES, 'UTF-8'));
+        $supplies_needed = cleanInput(htmlentities($supplies_needed, ENT_QUOTES, 'UTF-8'));
+        $preparation = cleanInput(htmlentities($preparation, ENT_QUOTES, 'UTF-8'));
+        $procedures = cleanInput(htmlentities($procedures, ENT_QUOTES, 'UTF-8'));
+        $wrap_up = cleanInput(htmlentities($wrap_up, ENT_QUOTES, 'UTF-8'));
         
         $newData = array('title' => $title,
                          'desc' => $desc, 
